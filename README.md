@@ -15,7 +15,7 @@ week-1/
 └── summary.md / .pdf
 ```
 
-The files are already created with `[placeholders]`. Replace them with your own notes.
+The files are already created and empty. Fill in yours each day (see `week-1/cletus-week1-day1.md` for the layout).
 
 ## Daily routine
 
