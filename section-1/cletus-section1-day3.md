@@ -20,14 +20,29 @@
 - LLM competition game: models play a game against each other, which shows how differently they behave. It's also a preview of getting several LLMs to talk to each other in Week 2.
 
 ## Code / examples
-No code today. These prompts are good for comparing models:
+No code today. These test prompts are good for comparing models. Copy each one into the chat apps.
 
-| Test | Prompt | What it shows |
-|---|---|---|
-| Letters vs tokens | How many times does the letter "r" appear in "strawberry"? | Models see tokens, not letters |
-| Knowledge cutoff | What were the biggest AI announcements this week? | Cutoff vs web search |
-| Reasoning | A short logic puzzle or riddle | Chat model vs reasoning model |
-| Hallucination | Summarize the paper "[made-up title]" by [made-up author] | Whether it invents an answer or admits it doesn't know |
+1. Letters vs tokens. Models see tokens, not letters, so this trips some of them up.
+```text
+How many times does the letter "r" appear in "strawberry"?
+```
+
+2. Knowledge cutoff. Shows whether the model knows recent news or has to search the web.
+```text
+What were the biggest AI announcements this week?
+```
+
+3. Reasoning. Compare a normal chat model with a reasoning model.
+```text
+A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?
+```
+
+4. Hallucination. Does it invent an answer or admit it doesn't know?
+```text
+Summarize the 2019 paper "Recursive Banana Networks for Weather Prediction" by Dr. Lena Okafor.
+```
+
+(The paper in prompt 4 is made up on purpose. The right answer to prompt 3 is 5 cents.)
 
 ## Exercise / challenge
 1. Run the 4 prompts above in 2 or 3 free chat apps (ChatGPT, Claude, Gemini, DeepSeek).
