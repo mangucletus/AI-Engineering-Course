@@ -1,6 +1,6 @@
 # Cletus: Week 1, Day 5
 
-- Date: [YYYY-MM-DD]
+- Date: 2026-10-09 (Friday)
 - Topic: brochure generator, JSON output, chaining calls, streaming
 - Notebook: week1/day5.ipynb, week1/week1 EXERCISE.ipynb
 

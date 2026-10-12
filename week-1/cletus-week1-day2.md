@@ -1,6 +1,6 @@
 # Cletus: Week 1, Day 2
 
-- Date: [YYYY-MM-DD]
+- Date: 2026-10-06 (Tuesday)
 - Topic: frontier vs open-source models, Chat Completions API, OpenAI-compatible endpoints
 - Notebook: week1/day2.ipynb
 

@@ -1,6 +1,6 @@
 # Cletus: Week 1, Day 4
 
-- Date: [YYYY-MM-DD]
+- Date: 2026-10-08 (Thursday)
 - Topic: transformers, parameters, tokens, memory, context window, costs
 - Notebook: week1/day4.ipynb
 

@@ -1,6 +1,6 @@
 # Cletus: Week 1, Day 3
 
-- Date: [YYYY-MM-DD]
+- Date: 2026-10-07 (Wednesday)
 - Topic: base vs chat vs reasoning models, frontier model strengths and pitfalls, agentic AI
 - Notebook: none (lectures and demos in the chat apps)
 

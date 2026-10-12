@@ -1,6 +1,6 @@
 # Cletus: Week 1, Day 1
 
-- Date: [YYYY-MM-DD]
+- Date: 2026-10-05 (Monday)
 - Topic: first local LLM with Ollama, setup, website summarizer
 - Notebook: week1/day1.ipynb
 
