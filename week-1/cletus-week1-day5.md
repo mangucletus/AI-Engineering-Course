@@ -61,8 +61,5 @@ for client, model in [(openai, "gpt-4o-mini"), (ollama, "llama3.2")]:
 ## Questions & blockers
 - Some links fail to scrape. Relative links (/about) need the full URL.
 
-## To discuss with my partner
-- What goes in our Week 1 summary?
-
 ## Resources
 - week1/scraper.py and week1/solutions/ in the course repo

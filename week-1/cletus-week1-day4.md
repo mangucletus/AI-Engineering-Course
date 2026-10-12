@@ -52,8 +52,5 @@ uv run chatbot.py
 ## Questions & blockers
 - Models struggle to count letters because they see tokens.
 
-## To discuss with my partner
-- How do we keep a long chat cheap? (summarize old turns, keep the last few)
-
 ## Resources
 - https://platform.openai.com/tokenizer

@@ -35,8 +35,5 @@ Summarize the 2019 paper "Recursive Banana Networks for Weather Prediction" by D
 ## Questions & blockers
 - Always check facts on recent or niche topics.
 
-## To discuss with my partner
-- Which model did best on which prompt?
-
 ## Resources
 - https://lmarena.ai

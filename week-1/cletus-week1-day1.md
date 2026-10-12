@@ -69,8 +69,5 @@ print(summarize("https://edwarddonner.com"))
 - JS-heavy sites like openai.com come back nearly empty. The scraper only reads raw HTML.
 - NameError: run cells from the top and check the .venv kernel.
 
-## To discuss with my partner
-- Where could we use summarization at work?
-
 ## Resources
 - https://github.com/ed-donner/llm_engineering/tree/main/week1

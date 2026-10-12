@@ -54,8 +54,5 @@ ollama pull llama3.2
 - llama3.3 and llama4 are too big for a laptop.
 - After editing .env, reload it with load_dotenv(override=True).
 
-## To discuss with my partner
-- When is a local model better than a frontier API?
-
 ## Resources
 - guides/09_ai_apis_and_ollama.ipynb in the course repo
