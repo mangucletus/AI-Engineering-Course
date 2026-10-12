@@ -5,14 +5,14 @@
 
 ## Structure
 
-- 8 sections = 8 weeks, 5 days each → `section-1/` … `section-8/`
+- 8 weeks, 5 days each, one folder per week: `week-1/` to `week-8/`
 - Each folder has a note for each of us per day, plus a shared weekly summary (each as `.md` + `.pdf`):
 
 ```
-section-1/
-├── cletus-section1-day1.md/.pdf … day5
-├── ophelia-section1-day1.md/.pdf … day5
-└── summary.md/.pdf
+week-1/
+├── cletus-week1-day1.md / .pdf  (up to day5)
+├── ophelia-week1-day1.md / .pdf (up to day5)
+└── summary.md / .pdf
 ```
 
 The files are already created with `[placeholders]`. Replace them with your own notes.
@@ -22,11 +22,11 @@ The files are already created with `[placeholders]`. Replace them with your own 
 1. `git pull`
 2. Do the day's lectures and lab (`weekN/dayD.ipynb` in your own clone of the course repo).
 3. Fill in your note for the day. Keep it short, in your own words.
-4. Export the PDF (VS Code *Markdown PDF* extension → right-click → Export (pdf)).
+4. Export the PDF (VS Code *Markdown PDF* extension, right-click, Export (pdf)).
 5. Push:
    ```bash
-   git add section-1/cletus-section1-day1.*
-   git commit -m "cletus: section 1 day 1 notes"
+   git add week-1/cletus-week1-day1.*
+   git commit -m "cletus: week 1 day 1 notes"
    git pull --rebase && git push
    ```
 6. Read your partner's note and comment on GitHub.
