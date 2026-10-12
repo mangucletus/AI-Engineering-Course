@@ -1,24 +1,24 @@
-# Cletus — Section 1, Day 5
+# Cletus: Section 1, Day 5
 
-- **Date:** [YYYY-MM-DD]
-- **Course:** Week 1, Day 5 — Company brochure generator: JSON prompts, chaining LLM calls, streaming
-- **Lab notebook:** week1/day5.ipynb + week1/week1 EXERCISE.ipynb (solution: week1/solutions/week1 SOLUTION.ipynb)
-- **Time spent:** [e.g. 2h]
+- Date: [YYYY-MM-DD]
+- Course: Week 1 Day 5, a company brochure generator using JSON prompts, chained LLM calls and streaming
+- Lab notebook: week1/day5.ipynb and week1/week1 EXERCISE.ipynb (solution in week1/solutions/week1 SOLUTION.ipynb)
+- Time spent: [e.g. 2h]
 
 ## Key concepts
-- **The business challenge** — given a company name and website, write a brochure for customers, investors and recruits.
-- **Chaining LLM calls** — call 1 picks the relevant links, and call 2 writes the brochure from those pages. The output of one call feeds the next, which is the first step toward **agentic AI**.
-- **Zero-, one- and multi-shot prompting** — give 0, 1 or several examples of the output you want inside the prompt. Day 5 uses **one-shot** (one example of the JSON).
-- **JSON mode** — `response_format={"type": "json_object"}` makes the model reply with valid JSON, which you read with `json.loads()`. A stricter version, *Structured Outputs*, comes in Week 8.
-- **LLMs for fuzzy judgement** — deciding which links are "relevant" would be hard to code by hand, but is easy for an LLM.
-- **Truncating input** — cut long text (e.g. `[:5_000]`) to control tokens and cost.
-- **Streaming** — `stream=True` sends the reply in chunks as it's written; read `chunk.choices[0].delta.content` to get the typewriter effect.
-- **Tone is just the system prompt** — change it to "humorous, witty" and the same pipeline makes a funny brochure.
+- The task: take a company name and website and write a brochure for customers, investors and job seekers.
+- Chaining LLM calls: the first call picks the relevant links, and the second writes the brochure using those pages. One call's output becomes the next call's input, which is the first small step towards agentic AI.
+- Zero-shot, one-shot and multi-shot prompting: putting 0, 1 or several examples of the output you want into the prompt. Day 5 uses one-shot, with one example of the JSON.
+- JSON mode: `response_format={"type": "json_object"}` makes the model return valid JSON, which we read with `json.loads()`. A stricter version called Structured Outputs comes in Week 8.
+- LLMs are good at judgement calls like deciding which links are "relevant". That would be really hard to code by hand.
+- Truncating: cutting long text (for example `[:5_000]`) to keep tokens and cost down.
+- Streaming: with `stream=True` the reply arrives in chunks while it's being written. Reading `chunk.choices[0].delta.content` gives the typewriter effect.
+- Tone comes from the system prompt. Change it to "humorous and witty" and the same code makes a funny brochure.
 
 ## Code / examples
-Pipeline: **get all links → LLM picks relevant links (JSON) → fetch those pages → LLM writes brochure → stream it**
+The steps: get all the links on the page, let the LLM pick the relevant ones (as JSON), fetch those pages, have the LLM write the brochure, and stream it out.
 
-Step 1, the LLM chooses links and replies in JSON:
+Step 1, the LLM picks the links and answers in JSON:
 
 ```python
 import json
@@ -44,7 +44,7 @@ def select_relevant_links(url):
     return json.loads(response.choices[0].message.content)
 ```
 
-Step 2: landing page + each relevant page → one big user prompt → brochure, streamed:
+Step 2 puts the landing page and each relevant page into one big user prompt, then streams the brochure back:
 
 ```python
 stream = openai.chat.completions.create(model="gpt-4.1-mini", messages=messages, stream=True)
@@ -53,7 +53,7 @@ for chunk in stream:
 ```
 
 ## Exercise / challenge
-**Week 1 challenge: a technical tutor.** Take a technical question, answer it with GPT (streamed) and with Llama 3.2 (local), then compare.
+Week 1 challenge, a technical tutor. It takes a technical question and answers it with GPT (streamed) and with Llama 3.2 (local), so we can compare the two.
 
 ```python
 question = """Please explain what this code does and why:
@@ -68,27 +68,27 @@ messages = [
 for chunk in openai.chat.completions.create(model="gpt-4o-mini", messages=messages, stream=True):
     print(chunk.choices[0].delta.content or "", end="")
 
-# Llama 3.2, local via Ollama
+# Llama 3.2, running locally through Ollama
 ollama = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 print(ollama.chat.completions.create(model="llama3.2", messages=messages).choices[0].message.content)
 ```
 
-Extra practice:
-- Make a brochure for another company.
-- Add a 3rd call that translates the brochure into French.
+More practice:
+- Make a brochure for a different company.
+- Add a third call that translates the brochure into French.
 - Use `input()` so the tutor asks you for the question.
 
 ## Questions & blockers
-Watch out for:
-- JSON mode needs the word **"JSON"** somewhere in your messages, or OpenAI returns an error.
-- Some links fail to scrape. Relative links like `/about` must become full URLs, and the prompt asks the LLM to do that.
-- Long pages use lots of tokens, so truncate the input.
+Things to watch out for:
+- JSON mode needs the word "JSON" somewhere in the messages, otherwise OpenAI returns an error.
+- Some links fail to scrape. Relative links like `/about` have to become full URLs, and the prompt asks the LLM to do that.
+- Long pages use a lot of tokens, so truncate the input.
 
 ## To discuss with my partner
-- Other content-generation uses at work: marketing copy, personalised emails, tutorials from a spec.
-- What goes into our Week 1 `summary.md`?
+- Other places content generation could help at work: marketing copy, personalised emails, tutorials written from a spec.
+- What should go in our Week 1 summary.md?
 
 ## Resources
-- `week1/scraper.py` (`fetch_website_links`, `fetch_website_contents`)
-- Prompting guide: https://platform.openai.com/docs/guides/prompt-engineering
-- Other students' projects: `week1/community-contributions/`
+- The scraping helpers: week1/scraper.py (`fetch_website_links`, `fetch_website_contents`)
+- OpenAI prompting guide: https://platform.openai.com/docs/guides/prompt-engineering
+- Other students' projects: week1/community-contributions/

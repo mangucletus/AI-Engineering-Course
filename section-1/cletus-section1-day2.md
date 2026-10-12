@@ -1,21 +1,21 @@
-# Cletus — Section 1, Day 2
+# Cletus: Section 1, Day 2
 
-- **Date:** [YYYY-MM-DD]
-- **Course:** Week 1, Day 2 — LLM building blocks, frontier vs open-source models, Chat Completions API
-- **Lab notebook:** week1/day2.ipynb (solution: week1/solution.py)
-- **Time spent:** [e.g. 2h]
+- Date: [YYYY-MM-DD]
+- Course: Week 1 Day 2, the building blocks of LLM engineering, frontier vs open-source models, and the Chat Completions API
+- Lab notebook: week1/day2.ipynb (solution in week1/solution.py)
+- Time spent: [e.g. 2h]
 
 ## Key concepts
-- **Building blocks of LLM engineering** — *models* (closed frontier vs open-source), *tools* (Ollama, Hugging Face, Gradio, ...) and *techniques* (APIs, prompting, RAG, fine-tuning, agents). The 8 weeks cover them step by step.
-- **Frontier (closed) models** — OpenAI GPT, Anthropic Claude, Google Gemini, xAI Grok. Strongest, and you pay per token.
-- **Open-source (open-weight) models** — Meta Llama, Mistral, DeepSeek, Qwen, Gemma. Free to download; small ones run locally with Ollama.
-- **Distillation** — a big model's knowledge squeezed into a small one. For example, `deepseek-r1:1.5b` is DeepSeek R1 distilled into a small Qwen model.
-- **Chat Completions API** — "here is a conversation, predict what comes next". OpenAI invented it, and now nearly everyone uses it.
-- **Endpoint** — a URL you send an HTTP request to. The `openai` Python package is just a thin client library around that HTTP call; it contains no model.
-- **OpenAI-compatible endpoints** — Gemini, Ollama and others accept the same request format, so the same `OpenAI` client works. You only change `base_url` and `api_key`.
+- The course is built around three things: models (closed frontier ones and open-source ones), tools (Ollama, Hugging Face, Gradio and so on) and techniques (APIs, prompting, RAG, fine-tuning, agents).
+- Frontier models: GPT from OpenAI, Claude from Anthropic, Gemini from Google and Grok from xAI. They're the strongest, and you pay per token.
+- Open-source (open-weight) models: Llama from Meta, Mistral, DeepSeek, Qwen and Gemma. Free to download, and the small ones run locally through Ollama.
+- Distillation: training a small model to copy a bigger one. `deepseek-r1:1.5b` is DeepSeek R1 distilled into a small Qwen model.
+- Chat Completions API: you give it a conversation and it predicts the next message. OpenAI came up with it and now almost every provider supports it.
+- Endpoint: a URL that we send an HTTP request to. The `openai` Python package is only a small wrapper around that request. It doesn't contain any model.
+- OpenAI-compatible endpoints: Gemini, Ollama and others accept the same request format, so the same `OpenAI` client works for all of them. Only `base_url` and `api_key` change.
 
 ## Code / examples
-The same call two ways:
+The same call done two ways:
 
 ```python
 import os, requests
@@ -33,7 +33,7 @@ response = openai.chat.completions.create(model="gpt-5-nano", messages=payload["
 print(response.choices[0].message.content)
 ```
 
-Switching provider = new `base_url` + key, and the rest stays the same:
+To switch provider, only the base_url and the key change:
 
 ```python
 gemini = OpenAI(base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
@@ -43,24 +43,24 @@ ollama = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")  # any t
 ollama.chat.completions.create(model="llama3.2", messages=[{"role": "user", "content": "Tell me a fun fact"}])
 ```
 
-Ollama check: open http://localhost:11434 → "Ollama is running" (if not, run `ollama serve`). Download a model with `ollama pull llama3.2`.
+To check Ollama is up, open http://localhost:11434. It should say "Ollama is running". If it doesn't, run `ollama serve`. Models are downloaded with `ollama pull llama3.2`.
 
 ## Exercise / challenge
-**Homework:** upgrade the Day 1 summarizer to use Llama 3.2 through Ollama instead of OpenAI. Only two lines change: the client (`base_url`) and the model name.
-- Compare the Llama summary with the GPT summary for the same site.
-- Local pros: no API cost, and data never leaves your machine. Con: much weaker than frontier models.
+Homework: change the Day 1 summarizer to use Llama 3.2 through Ollama instead of OpenAI. Only two things change, the client (base_url) and the model name.
+- Compare Llama's summary with GPT's for the same site.
+- Running locally costs nothing and the data stays on your machine, but the model is much weaker than the frontier ones.
 
 ## Questions & blockers
-Watch out for:
-- `llama3.3` and `llama4` are too big for a laptop. Use `llama3.2`, or `llama3.2:1b` if it's slow.
-- Save `.env` after editing, then reload it with `load_dotenv(override=True)`.
-- Gemini keys start with `AIz` (or `AQ.`); get one free at https://aistudio.google.com/api-keys.
+Things to watch out for:
+- `llama3.3` and `llama4` are too big for a normal laptop. Stick with `llama3.2`, or `llama3.2:1b` if it's slow.
+- After editing `.env`, save it and reload with `load_dotenv(override=True)`.
+- Gemini keys start with `AIz` (or `AQ.`). You can get one free at https://aistudio.google.com/api-keys.
 
 ## To discuss with my partner
 - When would we pick a local open-source model over a frontier API (cost, privacy, quality)?
 - How different were the Llama and GPT summaries?
 
 ## Resources
-- `guides/04_technical_foundations.ipynb` (endpoints, HTTP)
-- `guides/09_ai_apis_and_ollama.ipynb` (Ollama, Gemini, OpenRouter code)
+- Endpoints and HTTP basics: guides/04_technical_foundations.ipynb
+- Code for Ollama, Gemini and OpenRouter: guides/09_ai_apis_and_ollama.ipynb
 - Ollama: https://ollama.com
