@@ -9,7 +9,7 @@
 - Frontier models: GPT-4o, Claude, Gemini - these are very powerful but closed. We can only use them by calling their API and paying.
 - System prompt = I tell the model who it is and how to behave. Example: "You are a helpful assistant that summarizes websites."
 - User prompt = the real task I want it to do. Example: "Summarize this website..."
-- Security: My API key must be in a .env file. I must never push .env to GitHub. Add .env to .gitignore.
+- Security: My API key must be in a .env file. 
 
 **Setup - do once (Ubuntu / WSL):
 ```bash
