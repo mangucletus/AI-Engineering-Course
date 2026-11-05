@@ -1,6 +1,6 @@
  Ophelia: Week 2, Day 1 
 
- Calling Front-End Models (Anthropic, Google)
+ Calling Frontier Models (Anthropic, Google)
 
 - OpenRouter gives you access to multiple models (websites).
     - e.g. OpenAI, Anthropic, Gemini, Google
