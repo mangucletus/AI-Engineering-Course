@@ -3,7 +3,7 @@
 ## To Sign Up and Create a Token
 
 To sign up and create a token
-Visit https://huggingface.co
+Visit https://huggingface.com
 
 Select the secrets for this Notebook by clicking on the key icon in the left, and add a new secret called "HF_TOKEN" with the value as your token
 
