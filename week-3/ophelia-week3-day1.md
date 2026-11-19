@@ -1,5 +1,5 @@
 ophelia Week 3 Day 1
-Welcome to Google Colab - using free and powerful compute in the cloud.
+## Welcome to Google Colab - using free and powerful compute in the cloud.
 
 Google Colab gives you a remote Notebook-style browser window on to a machine, and you run code "locally" on that machine.
 
@@ -8,7 +8,9 @@ Free access to T4 GPUs!
 Easy ability to share code and collaborate on it
 Everyone gets to use identical code - no environment differences
 Downsides of Colab
-As it's free, Google reserves the right to bump you off the box at any point ("reset the runtime"), and this happens most quickly if no code is running. They can also downgrade you from a T4 to a CPU-only box. Sometimes this happens silently. You need to start everything again from the top. Paid plans last longer.
+As it's free, Google reserves the right to bump you off the box at any point ("reset the runtime"), 
+and this happens most quickly if no code is running. They can also downgrade you from a T4 to a CPU-only box. Sometimes this happens silently. 
+You need to start everything again from the top. Paid plans last longer.
 You need to pip install packages every single time (but no pip installs today)
 There's some latency - it's not as interactive as coding on your own box
 Survival Guide
